@@ -11,3 +11,9 @@
   cursor: pointer;
   background: var(--nextui-colors-primary);
 }
+
+body {
+  background: url(/polygon.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

@@ -108,11 +108,13 @@ export default function Home() {
                 <Dropdown.Button flat>Change Network</Dropdown.Button>
                 <Dropdown.Menu
                   selectionMode="single"
-                  aria-label="Actions" >
+                  aria-label="Actions"
+                  selectedKeys={["teamchain"]}
+                  disabledKeys={["eth"]}>
                   <Dropdown.Item
-                    key="new">Team Chain</Dropdown.Item>
+                    key="teamchain">Team Chain</Dropdown.Item>
                   <Dropdown.Item
-                    key="copy">Ethereum</Dropdown.Item>
+                    key="eth">Ethereum</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Container>

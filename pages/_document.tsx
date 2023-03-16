@@ -13,7 +13,14 @@ export default class _Document extends Document {
     render() {
         return (
             <Html lang="en">
-                <Head>{CssBaseline.flush()}</Head>
+                <Head>
+                    {CssBaseline.flush()}
+                    <link rel="shortcut icon" href="/logo.png" type="image/x-png" />
+                    <meta name="theme-color" content="#202020" />
+                    <link rel="apple-touch-icon" href="/logo.png" />
+                    <meta charSet="utf-8" />
+                    <link rel="manifest" href="/manifest.json" />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

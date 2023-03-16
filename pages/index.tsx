@@ -19,7 +19,6 @@ import { useWeb3React } from '@web3-react/core'
 import { Web3Connectors, Config, Web3Contract } from '@lib'
 import { Layout, Balance } from '@components'
 import type Web3 from 'web3'
-import { useLocalstorageState } from 'rooks'
 export default function Home() {
   const [isWalletConnected, setisWalletConnected] = useState<boolean>(false)
   const [data, setData] = useState<{ value?: string, isSending?: boolean }>()
@@ -72,7 +71,7 @@ export default function Home() {
   }
   useEffect(() => {
     const isPrevConnected = localStorage.getItem("wallet") === '1'
-    if (isPrevConnected) onConnectWallet()
+    if (isPrevConnected && !active && !account) onConnectWallet()
   }, [isWalletConnected])
   return (
     <Fragment>

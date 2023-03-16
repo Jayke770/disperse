@@ -1,12 +1,25 @@
 import '../styles/globals.css'
-import { NextUIProvider } from '@nextui-org/react'
-
+import { createTheme, NextUIProvider, useSSR } from "@nextui-org/react"
 import type { AppProps } from 'next/app'
-
-export default function MyApp({ Component, pageProps }: AppProps) {
+import Web3 from 'web3'
+import { Web3ReactProvider } from '@web3-react/core'
+const theme = createTheme({
+  type: "dark",
+  theme: {
+    colors: {
+      primary: '#2afe30',
+    },
+  }
+})
+export default function Disperse({ Component, pageProps }: AppProps) {
+  const { isBrowser } = useSSR()
   return (
-    <NextUIProvider>
-      <Component {...pageProps} />
-    </NextUIProvider>
+    isBrowser && (
+      <Web3ReactProvider getLibrary={(provider) => new Web3(provider)}>
+        <NextUIProvider theme={theme}>
+          <Component {...pageProps} />
+        </NextUIProvider>
+      </Web3ReactProvider>
+    )
   )
 }

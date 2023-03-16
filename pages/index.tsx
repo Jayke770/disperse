@@ -27,7 +27,6 @@ export default function Home() {
   const { library, activate, active, account, deactivate } = useWeb3React()
   const onConnectWallet = async () => {
     try {
-      const web3: Web3 = library
       setIsConnecting(true)
       await activate(Web3Connectors.injected)
       localStorage.setItem("wallet", "1")
